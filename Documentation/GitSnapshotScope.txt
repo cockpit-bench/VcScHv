@@ -1,5 +1,7 @@
-Snapshot module: VcScHv
-Actual creation date: 2026-09-10
-master is one complete source snapshot. Platform and auto refs point to the same tested source snapshot; their names reproduce the supplied module-family routing convention. They do not establish separate platform implementations or platform execution.
-2 annotated tags use VcScHv_11.2.1_<export-build>. These are explicitly synthetic export-build aliases of the same source object, not distinct algorithm releases or reconstructed eight-month history. ModelVersionFormat remains 11.2.1_0.
-Only the model version, change workbook and its actual before/after record establish the local model change. Tag count alone is not model version quality evidence.
+Module: VcScHv
+Local repair date: 2026-09-10
+Baseline source: a44a6d59be5b76a9119764ef3cec3947901e042f
+master advances from the preserved 11.2.1_0 baseline to typed-interface 12.0.0_0.
+All original platform/auto branches and export tags retain their exact baseline objects. They are historical synthetic routing/export examples, not current 12.0.0 platform implementations. Current model behavior is tested at master only.
+The new VcScHv_12.0.0_0 tag identifies this local repair snapshot. Old export aliases are not reconstructed eight-month release history; two source commits are not production certification.
+Model changes are documented with actual input/output differences and per-repository before/after behavior in the change workbook and InterfaceChanges.json.

@@ -1,0 +1,917 @@
+{
+  "case_id": "NEP-11",
+  "module": "VcScHv",
+  "before": "Floating elapsed timer tested completion before the late timeout boundary.",
+  "after": "Integer tick precharge deadline: 490/500 ms success, 510 ms rejected; low voltage cannot close.",
+  "added": [
+    "yVcScHv_ElapsedPrecharge_DOC",
+    "yVcScHv_MainRequest_DOC",
+    "yVcScHv_PrechargeRequest_DOC"
+  ],
+  "removed": [],
+  "changed": [
+    {
+      "name": "BVcScHv_BatteryVoltage_QM",
+      "before": {
+        "Name": "BVcScHv_BatteryVoltage_QM",
+        "Description": "BatteryVoltage communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 5,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "BVcScHv_BatteryVoltage_QM",
+        "Description": "BatteryVoltage communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 5,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "BVcScHv_ChargeEnable_QM",
+      "before": {
+        "Name": "BVcScHv_ChargeEnable_QM",
+        "Description": "ChargeEnable communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 20,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "BVcScHv_ChargeEnable_QM",
+        "Description": "ChargeEnable communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 20,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "BVcScHv_ContactorFeedback_QM",
+      "before": {
+        "Name": "BVcScHv_ContactorFeedback_QM",
+        "Description": "ContactorFeedback communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 23,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "BVcScHv_ContactorFeedback_QM",
+        "Description": "ContactorFeedback communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 23,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "BVcScHv_CrashSignal_QM",
+      "before": {
+        "Name": "BVcScHv_CrashSignal_QM",
+        "Description": "CrashSignal communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 14,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "BVcScHv_CrashSignal_QM",
+        "Description": "CrashSignal communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 14,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "BVcScHv_DcLinkVoltage_QM",
+      "before": {
+        "Name": "BVcScHv_DcLinkVoltage_QM",
+        "Description": "DcLinkVoltage communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 8,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "BVcScHv_DcLinkVoltage_QM",
+        "Description": "DcLinkVoltage communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 8,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "BVcScHv_DriveEnable_QM",
+      "before": {
+        "Name": "BVcScHv_DriveEnable_QM",
+        "Description": "DriveEnable communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 17,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "BVcScHv_DriveEnable_QM",
+        "Description": "DriveEnable communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 17,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "BVcScHv_IsolationResistance_QM",
+      "before": {
+        "Name": "BVcScHv_IsolationResistance_QM",
+        "Description": "IsolationResistance communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 11,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "BVcScHv_IsolationResistance_QM",
+        "Description": "IsolationResistance communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 11,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "BVcScHv_PrechargeFeedback_QM",
+      "before": {
+        "Name": "BVcScHv_PrechargeFeedback_QM",
+        "Description": "PrechargeFeedback communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 26,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "BVcScHv_PrechargeFeedback_QM",
+        "Description": "PrechargeFeedback communication valid",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 26,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "DVcScHv_InvalidChannels_D",
+      "before": {
+        "Name": "DVcScHv_InvalidChannels_D",
+        "Description": "invalid channel count",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 8,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 10,
+        "DataType": "uint8"
+      },
+      "after": {
+        "Name": "DVcScHv_InvalidChannels_D",
+        "Description": "invalid channel count",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 8,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 10,
+        "DataType": "uint16"
+      }
+    },
+    {
+      "name": "sCapture_B",
+      "before": {
+        "Name": "sCapture_B",
+        "Description": "Diagnostic capture rising edge",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 2,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sCapture_B",
+        "Description": "Diagnostic capture rising edge",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 2,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "sReset_B",
+      "before": {
+        "Name": "sReset_B",
+        "Description": "Reset",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 1,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sReset_B",
+        "Description": "Reset",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 1,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "sVcScHv_BatteryVoltage_Age",
+      "before": {
+        "Name": "sVcScHv_BatteryVoltage_Age",
+        "Description": "BatteryVoltage age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 4,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_BatteryVoltage_Age",
+        "Description": "BatteryVoltage age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 4,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "sVcScHv_BatteryVoltage_Raw",
+      "before": {
+        "Name": "sVcScHv_BatteryVoltage_Raw",
+        "Description": "BatteryVoltage raw measurement",
+        "Unit": "V",
+        "Min": 0,
+        "Max": 1000,
+        "InitialValue": 400,
+        "variable_reference": 0,
+        "Port": 3,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_BatteryVoltage_Raw",
+        "Description": "BatteryVoltage raw measurement",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 10000,
+        "InitialValue": 4000,
+        "variable_reference": 0,
+        "Port": 3,
+        "DataType": "uint16"
+      }
+    },
+    {
+      "name": "sVcScHv_ChargeEnable_Age",
+      "before": {
+        "Name": "sVcScHv_ChargeEnable_Age",
+        "Description": "ChargeEnable age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 19,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_ChargeEnable_Age",
+        "Description": "ChargeEnable age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 19,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "sVcScHv_ChargeEnable_Raw",
+      "before": {
+        "Name": "sVcScHv_ChargeEnable_Raw",
+        "Description": "ChargeEnable raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 18,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_ChargeEnable_Raw",
+        "Description": "ChargeEnable raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 18,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "sVcScHv_ContactorFeedback_Age",
+      "before": {
+        "Name": "sVcScHv_ContactorFeedback_Age",
+        "Description": "ContactorFeedback age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 22,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_ContactorFeedback_Age",
+        "Description": "ContactorFeedback age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 22,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "sVcScHv_ContactorFeedback_Raw",
+      "before": {
+        "Name": "sVcScHv_ContactorFeedback_Raw",
+        "Description": "ContactorFeedback raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 21,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_ContactorFeedback_Raw",
+        "Description": "ContactorFeedback raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 21,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "sVcScHv_CrashSignal_Age",
+      "before": {
+        "Name": "sVcScHv_CrashSignal_Age",
+        "Description": "CrashSignal age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 13,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_CrashSignal_Age",
+        "Description": "CrashSignal age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 13,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "sVcScHv_CrashSignal_Raw",
+      "before": {
+        "Name": "sVcScHv_CrashSignal_Raw",
+        "Description": "CrashSignal raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 12,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_CrashSignal_Raw",
+        "Description": "CrashSignal raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 12,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "sVcScHv_DcLinkVoltage_Age",
+      "before": {
+        "Name": "sVcScHv_DcLinkVoltage_Age",
+        "Description": "DcLinkVoltage age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 7,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_DcLinkVoltage_Age",
+        "Description": "DcLinkVoltage age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 7,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "sVcScHv_DcLinkVoltage_Raw",
+      "before": {
+        "Name": "sVcScHv_DcLinkVoltage_Raw",
+        "Description": "DcLinkVoltage raw measurement",
+        "Unit": "V",
+        "Min": 0,
+        "Max": 1000,
+        "InitialValue": 395,
+        "variable_reference": 0,
+        "Port": 6,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_DcLinkVoltage_Raw",
+        "Description": "DcLinkVoltage raw measurement",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 10000,
+        "InitialValue": 3950,
+        "variable_reference": 0,
+        "Port": 6,
+        "DataType": "uint16"
+      }
+    },
+    {
+      "name": "sVcScHv_DriveEnable_Age",
+      "before": {
+        "Name": "sVcScHv_DriveEnable_Age",
+        "Description": "DriveEnable age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 16,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_DriveEnable_Age",
+        "Description": "DriveEnable age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 16,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "sVcScHv_DriveEnable_Raw",
+      "before": {
+        "Name": "sVcScHv_DriveEnable_Raw",
+        "Description": "DriveEnable raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 15,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_DriveEnable_Raw",
+        "Description": "DriveEnable raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 15,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "sVcScHv_IsolationResistance_Age",
+      "before": {
+        "Name": "sVcScHv_IsolationResistance_Age",
+        "Description": "IsolationResistance age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 10,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_IsolationResistance_Age",
+        "Description": "IsolationResistance age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 10,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "sVcScHv_IsolationResistance_Raw",
+      "before": {
+        "Name": "sVcScHv_IsolationResistance_Raw",
+        "Description": "IsolationResistance raw measurement",
+        "Unit": "ohm",
+        "Min": 0,
+        "Max": 2000000.0,
+        "InitialValue": 500000,
+        "variable_reference": 0,
+        "Port": 9,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_IsolationResistance_Raw",
+        "Description": "IsolationResistance raw measurement",
+        "Unit": "ohm",
+        "Min": 0,
+        "Max": 2000000.0,
+        "InitialValue": 500000,
+        "variable_reference": 0,
+        "Port": 9,
+        "DataType": "uint32"
+      }
+    },
+    {
+      "name": "sVcScHv_PrechargeFeedback_Age",
+      "before": {
+        "Name": "sVcScHv_PrechargeFeedback_Age",
+        "Description": "PrechargeFeedback age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 25,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_PrechargeFeedback_Age",
+        "Description": "PrechargeFeedback age seconds",
+        "Unit": "s",
+        "Min": 0,
+        "Max": 10,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 25,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "sVcScHv_PrechargeFeedback_Raw",
+      "before": {
+        "Name": "sVcScHv_PrechargeFeedback_Raw",
+        "Description": "PrechargeFeedback raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 24,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "sVcScHv_PrechargeFeedback_Raw",
+        "Description": "PrechargeFeedback raw measurement",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 24,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "yVcScHv_BatteryVoltage_DOC",
+      "before": {
+        "Name": "yVcScHv_BatteryVoltage_DOC",
+        "Description": "BatteryVoltage",
+        "Unit": "V",
+        "Min": 0,
+        "Max": 1000,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 1,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "yVcScHv_BatteryVoltage_DOC",
+        "Description": "BatteryVoltage",
+        "Unit": "V",
+        "Min": 0,
+        "Max": 1000,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 1,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "yVcScHv_ChargeEnable_DOC",
+      "before": {
+        "Name": "yVcScHv_ChargeEnable_DOC",
+        "Description": "ChargeEnable",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 6,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "yVcScHv_ChargeEnable_DOC",
+        "Description": "ChargeEnable",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 6,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "yVcScHv_Command_DOC",
+      "before": {
+        "Name": "yVcScHv_Command_DOC",
+        "Description": "high_voltage_sequence",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 3,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 9,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "yVcScHv_Command_DOC",
+        "Description": "high_voltage_sequence",
+        "Unit": "1",
+        "Min": 0,
+        "Max": 3,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 9,
+        "DataType": "uint8"
+      }
+    },
+    {
+      "name": "yVcScHv_ContactorFeedback_DOC",
+      "before": {
+        "Name": "yVcScHv_ContactorFeedback_DOC",
+        "Description": "ContactorFeedback",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 7,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "yVcScHv_ContactorFeedback_DOC",
+        "Description": "ContactorFeedback",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 7,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "yVcScHv_CrashSignal_DOC",
+      "before": {
+        "Name": "yVcScHv_CrashSignal_DOC",
+        "Description": "CrashSignal",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 4,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "yVcScHv_CrashSignal_DOC",
+        "Description": "CrashSignal",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 1,
+        "variable_reference": 0,
+        "Port": 4,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "yVcScHv_DcLinkVoltage_DOC",
+      "before": {
+        "Name": "yVcScHv_DcLinkVoltage_DOC",
+        "Description": "DcLinkVoltage",
+        "Unit": "V",
+        "Min": 0,
+        "Max": 1000,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 2,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "yVcScHv_DcLinkVoltage_DOC",
+        "Description": "DcLinkVoltage",
+        "Unit": "V",
+        "Min": 0,
+        "Max": 1000,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 2,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "yVcScHv_DriveEnable_DOC",
+      "before": {
+        "Name": "yVcScHv_DriveEnable_DOC",
+        "Description": "DriveEnable",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 5,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "yVcScHv_DriveEnable_DOC",
+        "Description": "DriveEnable",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 5,
+        "DataType": "boolean"
+      }
+    },
+    {
+      "name": "yVcScHv_IsolationResistance_DOC",
+      "before": {
+        "Name": "yVcScHv_IsolationResistance_DOC",
+        "Description": "IsolationResistance",
+        "Unit": "ohm",
+        "Min": 0,
+        "Max": 2000000.0,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 3,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "yVcScHv_IsolationResistance_DOC",
+        "Description": "IsolationResistance",
+        "Unit": "ohm",
+        "Min": 0,
+        "Max": 2000000.0,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 3,
+        "DataType": "single"
+      }
+    },
+    {
+      "name": "yVcScHv_PrechargeFeedback_DOC",
+      "before": {
+        "Name": "yVcScHv_PrechargeFeedback_DOC",
+        "Description": "PrechargeFeedback",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 8,
+        "DataType": "double"
+      },
+      "after": {
+        "Name": "yVcScHv_PrechargeFeedback_DOC",
+        "Description": "PrechargeFeedback",
+        "Unit": "boolean",
+        "Min": 0,
+        "Max": 1,
+        "InitialValue": 0,
+        "variable_reference": 0,
+        "Port": 8,
+        "DataType": "boolean"
+      }
+    }
+  ],
+  "baseline_version": "11.2.1_0",
+  "version": "12.0.0_0",
+  "summary": "Root signals added: 3; removed: 0; type/unit/range changes: 36. Added outputs: yVcScHv_ElapsedPrecharge_DOC, yVcScHv_MainRequest_DOC, yVcScHv_PrechargeRequest_DOC. Details: InterfaceChanges.json; executable behavior: BusinessBehavior.md."
+}

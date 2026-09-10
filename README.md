@@ -1,13 +1,13 @@
 # VcScHv
 
-Synthetic新能源现实代理模型：`high_voltage_sequence`。源码为本地实现，结构依据所提供的36仓扫描汇总；不包含内部真实信号、算法、标定值或车型验证。
+新能源现实代理：`high_voltage_sequence`。使用 MATLAB/Simulink R2023b 打开 `Model/VcScHv.slx`，采样周期 0.01 s。实际业务职责与独立断言见 `Documentation/BusinessBehavior.md`，编码见 `SignalEncoding.json`，接口为真实 BIFF8 的 `Model/interfaceVcScHv.xls`。
 
-打开 `Model/VcScHv.slx`（MATLAB/Simulink R2023b）。模型以 0.01 s 接收明确采样接口。`Model/interfaceVcScHv.xls` 是实际 OLE/BIFF8 接口表；`Documentation` 保存需求、模型变更及可用的工程检查。
+当前版本 `12.0.0_0`。MAJOR 表示接口不兼容变更，MINOR 表示兼容能力增量，PATCH 表示兼容修复，`_N` 为导出构建号。本轮 raw/physical 类型与新增诊断输出属于不兼容接口修订，11.2.1_0 → 12.0.0_0 的实际差异记录在变更表及 `InterfaceChanges.json`；Git 父提交保留基线。
 
-当前模型版本 `11.2.1_0`；MAJOR 表示接口不兼容变更，MINOR 表示兼容业务能力增量，PATCH 表示兼容修复，末尾 `_N` 为导出构建序号。11.1→11.2对应本地业务状态完善；这些版本不是内部历史版本。
+模型按业务划分组件，并区分模拟量、枚举和布尔调理。通道重复与材料差异仍按实际源码保留。源码依据可访问的内部汇总构造，没有内部逐仓联合画像、算法或标定，不能宣称真实36仓的完整复原或独立留出集。
 
-每个信号执行范围/时效/通信状态判定、两次连续有效确认、单位转换及安全替代。模块的业务职责、动态行为、数值范围和测试范围以本仓模型及工程材料为准。
+`Documentation`、`Model`、`Src`、`UnitTest` 分别保存需求/变更、模型/接口/标定、生成C、测试。仓内有独立属性用例、输入向量及实际 MIL/覆盖报告。
 
-Git 平台与 auto 分支按扫描规则构造，属于合成工程工作流样例。master 为单次完整快照；标签为本轮创建的导出/验证快照，不表示八个月真实生产发布历史。平台名称不证明在对应 ECU 上执行过。
+平台/auto 分支及旧导出标签保留基线快照，master 是本次前向修复。旧标签是合成导出别名，不是八个月发布史，也不证明多个平台实现。详情见 `Documentation/GitSnapshotScope.txt`。
 
-生成码（若存在）来自 Embedded Coder R2023b，目标为 Windows x86-64。A2L 未链接 ECU 地址；LAB 为实际导出符号的标签清单。测试HTML采用BTC文件命名形态，但实际执行工具是Simulink/Simulink Coverage和明确标出的host C harness，没有运行BTC工具或目标设备。
+生成C（若有）来自 Embedded Coder R2023b，使用本机 LCC harness 回放；LCC 缺少的 fmodf 由标准 fmod 提供兼容实现，生成生产C未改。A2L 未链接 ECU 地址。BTC仅为报告命名形态，实际测试使用 Simulink/Simulink Coverage；没有BTC、物理设备、SIL/PIL/HIL或认证执行。

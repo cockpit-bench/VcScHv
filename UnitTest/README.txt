@@ -1,1 +1,1 @@
-This repository snapshot does not include owned automated unit tests or test reports. External maintainer admission runs are not repository-owned unit-test evidence.
+Owned MIL test fixtures and property report. Expected columns are independent channel/diagnostic values; blank expected business cells are intentionally unconstrained. Business assertions are in test-properties.json. native-replay.tsv contains measured output values, not an independent oracle. BTC-style filenames do not indicate BTC execution.
