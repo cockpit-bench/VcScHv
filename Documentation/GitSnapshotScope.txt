@@ -1,0 +1,5 @@
+Snapshot module: VcScHv
+Actual creation date: 2026-09-10
+master is one complete source snapshot. Platform and auto refs point to the same tested source snapshot; their names reproduce the supplied module-family routing convention. They do not establish separate platform implementations or platform execution.
+2 annotated tags use VcScHv_11.2.1_<export-build>. These are explicitly synthetic export-build aliases of the same source object, not distinct algorithm releases or reconstructed eight-month history. ModelVersionFormat remains 11.2.1_0.
+Only the model version, change workbook and its actual before/after record establish the local model change. Tag count alone is not model version quality evidence.

@@ -1,0 +1,45 @@
+Synthetic engineering requirements; not internal production calibration.
+Version 1.1; recorded 2026-09-10.
+
+NEP-11-001: reject each channel when Raw is outside inclusive limits, Age exceeds timeout or Status is zero
+NEP-11-002: accept a recovered channel only after two consecutive valid samples; reset discards prior qualification
+NEP-11-003: substituted value is the channel's physical fallback, never the invalid raw value
+NEP-11-004: command follows documented high_voltage_sequence decisions and safety inhibits
+NEP-11-005: diagnostic snapshot updates on the rising sample trigger; ordinary cycles retain the last snapshot
+
+NEP-11-SIG-001: reject stale, invalid-status or out-of-range BatteryVoltage; qualify two valid samples, convert and apply documented fallback
+NEP-11-SIG-002: reject stale, invalid-status or out-of-range DcLinkVoltage; qualify two valid samples, convert and apply documented fallback
+NEP-11-SIG-003: reject stale, invalid-status or out-of-range IsolationResistance; qualify two valid samples, convert and apply documented fallback
+NEP-11-SIG-004: reject stale, invalid-status or out-of-range CrashSignal; qualify two valid samples, convert and apply documented fallback
+NEP-11-SIG-005: reject stale, invalid-status or out-of-range DriveEnable; qualify two valid samples, convert and apply documented fallback
+NEP-11-SIG-006: reject stale, invalid-status or out-of-range ChargeEnable; qualify two valid samples, convert and apply documented fallback
+NEP-11-SIG-007: reject stale, invalid-status or out-of-range ContactorFeedback; qualify two valid samples, convert and apply documented fallback
+NEP-11-SIG-008: reject stale, invalid-status or out-of-range PrechargeFeedback; qualify two valid samples, convert and apply documented fallback
+
+Domain state requirements and executable design rationale:
+function command = sequence(battery,dcLink,isolation,crash,drive,charge,mainFeedback,prechargeFeedback,valid,reset)
+% Command states: 0=open, 1=precharge, 2=main closed, 3=latched fault.
+% Synthetic controller requirement: de-energize on request removal or reset;
+% isolation/crash faults latch. Precharge has a 500 ms completion deadline.
+persistent state elapsed
+if isempty(state), state=0; elapsed=0; end
+requested=(drive~=0 || charge~=0);
+if reset~=0 || ~requested
+ state=0;elapsed=0;
+elseif ~valid || isolation<100000 || crash~=0
+ state=3;elapsed=0;
+elseif state==0
+ state=1;elapsed=0;
+elseif state==1
+ if dcLink>=0.95*battery && prechargeFeedback~=0
+  state=2;elapsed=0;
+ elseif elapsed>=0.5
+  state=3;elapsed=0;
+ else
+  elapsed=elapsed+SAMPLE_TIME;
+ end
+elseif state==2 && mainFeedback==0
+ state=3;elapsed=0;
+end
+command=state;
+end
