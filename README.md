@@ -11,3 +11,7 @@
 平台/auto 分支及旧导出标签保留基线快照，master 是本次前向修复。旧标签是合成导出别名，不是八个月发布史，也不证明多个平台实现。详情见 `Documentation/GitSnapshotScope.txt`。
 
 生成C（若有）来自 Embedded Coder R2023b，使用本机 LCC harness 回放；LCC 缺少的 fmodf 由标准 fmod 提供兼容实现，生成生产C未改。A2L 未链接 ECU 地址。BTC仅为报告命名形态，实际测试使用 Simulink/Simulink Coverage；没有BTC、物理设备、SIL/PIL/HIL或认证执行。
+
+## 2026-09-10 工程修复补充
+
+保持根接口与旧版本记录。本地当前模型版本 `12.0.0_0`。实际类型化业务 Bus、标定与实现变化见 EngineeringRepair.json（具备该文件的模型）；完整行为见 BusinessBehavior.md。LAB 使用 A2L 实际测量和标定符号；SWUT Properties 与独立断言逐项一致。未执行 BTC 或 ECU 测试，未改变构建独立性合同。
